@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống Quản trị Ký số (Bảo Mật)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 20px; color: #333;}
+        .container { max-width: 1200px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h2 { border-bottom: 2px solid #ecf0f1; padding-bottom: 15px; color: #2c3e50; margin-top: 0;}
+        input[type="text"], input[type="password"], input[type="file"], select { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #dcdde1; border-radius: 5px; box-sizing: border-box; }
+        
+        button { background: #3498db; color: white; border: none; padding: 8px 14px; border-radius: 5px; cursor: pointer; font-weight: 600; margin-right: 5px; margin-top: 5px; transition: 0.2s;}
+        button:hover:not(:disabled) { opacity: 0.8; transform: translateY(-1px);}
+        button:disabled { background: #bdc3c7; cursor: not-allowed;}
+        
+        .btn-green { background: #2ecc71; } .btn-red { background: #e74c3c; } .btn-dark { background: #34495e; } .btn-orange { background: #e67e22; } .btn-purple { background: #9b59b6; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px;}
+        th, td { padding: 12px; border-bottom: 1px solid #f1f2f6; text-align: left; vertical-align: middle; }
+        th { background-color: #2c3e50; color: white; border-radius: 4px 4px 0 0;}
+        tr:hover { background-color: #f8f9fa; }
+        
+        .badge { padding: 5px 10px; border-radius: 20px; font-size: 0.8em; font-weight: bold; color: white;}
+        .bg-gray { background: #95a5a6; } .bg-orange { background: #f39c12; } .bg-blue { background: #3498db; } .bg-green { background: #27ae60; } .bg-red { background: #c0392b; }
+        
+        #dashboard { display: none; }
+        .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;}
+        
+        .action-box { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #3498db; box-shadow: 0 2px 4px rgba(0,0,0,0.02);}
+        .card { background: white; border: 1px solid #e1e8ed; border-radius: 8px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .card-title { font-size: 16px; color: #2c3e50; font-weight: bold; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #f1f2f6; padding-bottom: 10px;}
+        .empty-state { text-align: center; padding: 30px; color: #95a5a6; font-style: italic; background: #f8f9fa; border: 1px dashed #bdc3c7; border-radius: 8px; }
+        
+        .tabs { margin-bottom: 20px; border-bottom: 2px solid #ecf0f1; display: flex; gap: 5px;}
+        .tab-btn { background: #eee; color: #555; padding: 12px 20px; border-radius: 5px 5px 0 0; border: none; cursor: pointer; margin:0; transition: 0.3s;}
+        .tab-btn:hover { background: #e0e0e0; }
+        .tab-btn.active { background: #2c3e50; color: white; font-weight: bold;}
+        
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6);}
+        .modal-content { background-color: #fff; margin: 5% auto; padding: 30px; border-radius: 10px; width: 850px; max-height: 85vh; overflow-y: auto; position: relative;}
+        .close-btn { position: absolute; right: 25px; top: 15px; font-size: 28px; cursor: pointer; color: #7f8c8d;}
+        .close-btn:hover { color: #e74c3c; }
+        .preview-box { border: 1px dashed #bdc3c7; padding: 10px; text-align: center; margin-top: 10px; background: #fff; min-height: 100px; border-radius: 5px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="loginBox" style="max-width: 400px; margin: 50px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; border:none;">Hệ Thống Ký Số Nội Bộ</h2>
+            <input type="text" id="username" placeholder="Tên đăng nhập">
+            <input type="password" id="password" placeholder="Mật khẩu">
+            <button style="width: 100%; padding: 12px; margin-top: 15px; font-size: 16px;" onclick="login()">Đăng Nhập</button>
+        </div>
+
+        <div id="dashboard">
+            <div class="dashboard-header">
+                <h2>Bảng Điều Khiển</h2>
+                <div>
+                    <span id="welcomeMsg" style="margin-right: 15px; font-weight: bold; color: #2c3e50;"></span>
+                    <button class="btn-red" onclick="logout()">Đăng xuất</button>
+                </div>
+            </div>
+
+            <div class="tabs admin-tabs" style="display: none;">
+                <button class="tab-btn active" onclick="switchTab('all')">Tất cả Văn bản</button>
+                <button class="tab-btn" onclick="switchTab('admin_pending')">Chờ phê duyệt</button>
+                <button class="tab-btn" onclick="switchTab('users')">Quản lý Nhân viên</button>
+                <button class="tab-btn" onclick="switchTab('logs')">Nhật ký Hệ thống</button>
+            </div>
+
+            <div class="tabs user-tabs" style="display: none;">
+                <button class="tab-btn active" onclick="switchTab('user_docs')">Tài liệu Hệ thống</button>
+                <button class="tab-btn" onclick="switchTab('user_pending')">Chờ xử lý của bạn</button>
+                <button class="tab-btn" onclick="switchTab('user_requests')">Yêu cầu quyền</button>
+            </div>
+            
+            <div class="action-box" id="uploadSection" style="display: none;">
+                <h4 style="margin-top:0; color:#3498db;">Tải lên Văn bản mới</h4>
+                <div style="display: flex; gap: 10px;">
+                    <input type="file" id="fileInput" onchange="previewFile()" style="flex:1; margin:0;">
+                    <input type="text" id="customFileName" placeholder="Nhập tên mới cho file (không bắt buộc)" style="flex:2; margin:0;">
+                    <button onclick="uploadFile()" style="margin:0;">Xác nhận Tải lên</button>
+                </div>
+                <div id="filePreview" class="preview-box"><i>Bản xem trước sẽ hiển thị ở đây...</i></div>
+            </div>
+
+            <div id="tableContainer" class="card">
+                <table id="mainTable">
+                    <thead id="tableHeader"></thead>
+                    <tbody id="dataTable"></tbody>
+                </table>
+            </div>
+
+            <div id="adminPendingSection" style="display:none;">
+                <div class="card">
+                    <div class="card-title">📄 1. Văn bản chờ phê duyệt</div>
+                    <table>
+                        <thead><tr><th>ID</th><th>Tên File</th><th>Người tải lên</th><th>Thời gian</th><th>Thao tác</th></tr></thead>
+                        <tbody id="adminPendingDocsTable"></tbody>
+                    </table>
+                </div>
+                <div class="card">
+                    <div class="card-title">🔑 2. Yêu cầu cấp quyền từ Nhân viên</div>
+                    <table id="tblReqList">
+                        <thead><tr><th>User</th><th>Loại yêu cầu</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
+                        <tbody id="reqTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="userPendingSection" style="display:none;">
+                <div class="card">
+                    <div class="card-title">⏳ 1. Văn bản tải lên đang chờ Admin duyệt</div>
+                    <table id="tblWaitApprove"><thead><tr><th>ID</th><th>Tên File</th><th>Trạng thái duyệt</th></tr></thead><tbody id="tbUserWaitApprove"></tbody></table>
+                </div>
+                <div class="card">
+                    <div class="card-title">✍️ 2. Văn bản cần bạn xử lý (Đã duyệt)</div>
+                    <table id="tblNeedSign"><thead><tr><th>ID</th><th>Tên File</th><th>Thao tác</th></tr></thead><tbody id="tbUserNeedSign"></tbody></table>
+                </div>
+                <div class="card">
+                    <div class="card-title">🔑 3. Yêu cầu cấp quyền đang chờ</div>
+                    <table id="tblWaitReq"><thead><tr><th>Loại yêu cầu</th><th>Thời gian</th><th>Trạng thái</th></tr></thead><tbody id="tbUserWaitReq"></tbody></table>
+                </div>
+            </div>
+
+            <div id="userRequestSection" style="display:none;" class="card">
+                <div class="card-title">Gửi yêu cầu cấp quyền lên hệ thống</div>
+                <select id="reqType" style="margin-bottom: 15px;">
+                    <option value="upload">Yêu cầu cấp quyền tải lên văn bản</option>
+                    <option value="edit_doc">Yêu cầu chỉnh sửa văn bản (File .doc)</option>
+                </select>
+                <button class="btn-green" onclick="sendRequest()">Gửi Yêu Cầu</button>
+            </div>
+
+            <div id="adminUsersSection" style="display:none;">
+                <div class="action-box">
+                    <h4 style="margin-top:0;">Tạo Nhân viên mới</h4>
+                    <div style="display: flex; gap:10px;">
+                        <input type="text" id="newUsername" placeholder="Tên đăng nhập" style="margin:0;">
+                        <input type="password" id="newPassword" placeholder="Mật khẩu" style="margin:0;">
+                        <select id="newRole" style="margin:0;"><option value="user">User</option><option value="admin">Admin</option></select>
+                        <button class="btn-green" onclick="createUser()" style="margin:0;">Tạo mới</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Danh sách Nhân viên và Quản lý Quyền hạn</div>
+                    <table id="tblUserList"><thead><tr><th>ID</th><th>Tên</th><th>Vai trò</th><th>Quyền đã cấp</th><th>Thao tác</th></tr></thead><tbody id="userTable"></tbody></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="document.getElementById('detailModal').style.display='none'">&times;</span>
+            <h2 id="modalTitle" style="border-bottom:none; margin-bottom: 5px;">Chi Tiết Văn Bản</h2>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+    
+        let currentRole = '';
+        let canEdit = false;
+        let currentUser = '';
+        let currentUserId = 0;
+        let canUpload = false;
+        let allDocuments = [];
+        let allRequests = [];
+        let currentTab = 'all';
+
+        async function apiCall(url, method = 'GET', body = null) {
+            let options = { method };
+            if (body instanceof FormData) options.body = body; 
+            else if (body) { options.headers = { 'Content-Type': 'application/json' }; options.body = JSON.stringify(body); }
+            
+            const res = await fetch(url, options);
+            if (res.status === 401) location.reload();
+            if (res.status === 403) { const d = await res.json(); alert(d.error); throw new Error("403"); }
+            if (res.status === 400) { const d = await res.json(); alert(d.error); throw new Error("400"); }
+            if (!res.ok) { alert(`Lỗi kết nối máy chủ (${res.status}). Vui lòng thử lại!`); throw new Error("Server Error"); }
+            
+            return res;
+        }
+
+        async function login() {
+            const u = document.getElementById('username').value, p = document.getElementById('password').value;
+            try {
+                const res = await fetch('/api/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({username: u, password: p}) });
+                if (res.ok) { 
+                    const data = await res.json();
+                    currentRole = data.role; currentUser = u; currentUserId = data.id; 
+                    document.getElementById('welcomeMsg').innerText = `Xin chào, ${u} (${currentRole === 'admin' ? 'Quản trị viên' : 'Nhân viên'})`;
+                    document.getElementById('loginBox').style.display = 'none'; 
+                    document.getElementById('dashboard').style.display = 'block'; 
+                    
+                    if(currentRole === 'admin') { document.querySelector('.admin-tabs').style.display = 'flex'; currentTab = 'all'; } 
+                    else { document.querySelector('.user-tabs').style.display = 'flex'; currentTab = 'user_docs'; }
+                    loadData(); 
+                } else alert("Sai tài khoản hoặc mật khẩu!");
+            } catch(e) {}
+        }
+
+        async function logout() { await fetch('/api/logout', { method: 'POST' }); location.reload(); }
+
+        function previewFile() {
+            const file = document.getElementById('fileInput').files[0];
+            if(!file) return;
+            document.getElementById('customFileName').value = file.name.split('.').slice(0, -1).join('.'); 
+            const preview = document.getElementById('filePreview');
+            if(file.type.match('image.*')) preview.innerHTML = `<img src="${URL.createObjectURL(file)}" style="max-height:150px; border-radius:5px;">`;
+            else if(file.type === 'application/pdf') preview.innerHTML = `<iframe src="${URL.createObjectURL(file)}" style="width:100%; height:150px; border:none;"></iframe>`;
+            else preview.innerHTML = `<b style="color:#2980b9">Tệp: ${file.name}</b> (Định dạng này không hỗ trợ xem trước).`;
+        }
+
+        async function uploadFile() {
+            const file = document.getElementById('fileInput').files[0];
+            if (!file) return alert("Vui lòng chọn file cần tải lên!");
+            const formData = new FormData(); formData.append('file', file); formData.append('custom_name', document.getElementById('customFileName').value);
+            try { 
+                await apiCall('/api/upload', 'POST', formData); 
+                alert("Đã tải lên thành công!");
+                document.getElementById('fileInput').value = ''; document.getElementById('customFileName').value = ''; document.getElementById('filePreview').innerHTML = '<i>Bản xem trước sẽ hiển thị ở đây...</i>';
+                loadData(); 
+            } catch(e){}
+        }
+
+        function switchTab(tab) {
+            currentTab = tab; 
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            const activeBtn = document.querySelector(`.tab-btn[onclick="switchTab('${tab}')"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+            
+            document.getElementById('tableContainer').style.display = 'none';
+            document.getElementById('adminUsersSection').style.display = 'none';
+            document.getElementById('userPendingSection').style.display = 'none';
+            document.getElementById('userRequestSection').style.display = 'none';
+            document.getElementById('adminPendingSection').style.display = 'none';
+            
+            if(tab === 'all' || tab === 'user_docs') { document.getElementById('tableContainer').style.display = 'block'; renderDocsTable(tab); }
+            else if(tab === 'admin_pending') { document.getElementById('adminPendingSection').style.display = 'block'; renderAdminPending(); }
+            else if(tab === 'logs') { document.getElementById('tableContainer').style.display = 'block'; loadLogs(); }
+            else if(tab === 'users') { document.getElementById('adminUsersSection').style.display = 'block'; loadUsers(); }
+            else if(tab === 'user_pending') { document.getElementById('userPendingSection').style.display = 'block'; renderUserPending(); }
+            else if(tab === 'user_requests') { document.getElementById('userRequestSection').style.display = 'block'; }
+
+            let showUpload = (tab === 'all' && currentRole === 'admin') || (tab === 'user_docs' && canUpload);
+            document.getElementById('uploadSection').style.display = showUpload ? 'block' : 'none';
+        }
+
+        async function loadData() {
+         allDocuments = await (await apiCall('/api/documents')).json();
+         allRequests = await (await apiCall('/api/requests')).json();
+    
+         canUpload = allRequests.some(r => r.username === currentUser && r.type === 'upload' && r.status === 'Đã duyệt');
+    
+         canEdit = allRequests.some(r => r.username === currentUser && r.type === 'edit_doc' && r.status === 'Đã duyệt');
+    
+         switchTab(currentTab);
+        }
+
+        function renderAdminPending() {
+            const tbDocs = document.getElementById('adminPendingDocsTable'); tbDocs.innerHTML = '';
+            let pendingDocs = allDocuments.filter(d => !d.is_approved);
+            if(pendingDocs.length === 0) tbDocs.innerHTML = `<tr><td colspan="5"><div class="empty-state">Không có văn bản chờ duyệt.</div></td></tr>`;
+            else {
+                pendingDocs.forEach(doc => {
+                    let actions = `<button class="btn-dark" onclick="showDetail(${doc.id})">Chi tiết</button>`;
+                    actions += `<button onclick="window.open('/api/view/${doc.id}', '_blank')" style="background:#7f8c8d;">Xem File</button>`;
+                    actions += `<button class="btn-green" onclick="approveDoc(${doc.id})">Phê duyệt</button>`;
+                    actions += `<button class="btn-red" onclick="deleteDoc(${doc.id})">Xóa</button>`;
+                    tbDocs.innerHTML += `<tr><td>#${doc.id}</td><td><b>${doc.filename}</b></td><td>${doc.uploader_name}</td><td>${doc.upload_time}</td><td>${actions}</td></tr>`;
+                });
+            }
+
+            const tbReq = document.getElementById('reqTable'); tbReq.innerHTML = '';
+            let pendingReqs = allRequests.filter(r => r.status === 'Chờ duyệt');
+            if(pendingReqs.length === 0) tbReq.innerHTML = `<tr><td colspan="4"><div class="empty-state">Không có yêu cầu nào đang chờ.</div></td></tr>`;
+            else {
+                pendingReqs.forEach(r => {
+                    tbReq.innerHTML += `<tr>
+                        <td><b>${r.username}</b></td><td>${r.type === 'upload' ? 'Cấp quyền Tải lên' : 'Quyền sửa .doc'}</td>
+                        <td><span class="badge bg-orange">${r.status}</span></td>
+                        <td><button class="btn-green" onclick="approveReq(${r.id})">Duyệt Yêu cầu</button></td>
+                    </tr>`;
+                });
+            }
+        }
+
+        function renderDocsTable(tab) {
+            document.getElementById('tableHeader').innerHTML = `<tr><th>ID</th><th>Tên File</th><th>Trạng thái</th><th>Số người ký</th><th>Thao tác</th></tr>`;
+            const tbody = document.getElementById('dataTable'); tbody.innerHTML = '';
+            
+            let filtered = allDocuments;
+            if(tab === 'user_docs') filtered = allDocuments.filter(d => d.is_approved);
+
+            if(filtered.length === 0) { tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state">Không có văn bản nào trong mục này.</div></td></tr>`; return; }
+
+            filtered.forEach(doc => {
+                let badgeClass = 'bg-orange'; // Vàng cho Chưa ký
+                if(doc.status === 'Đã ký') badgeClass = 'bg-blue';
+                if(doc.status === 'Hợp lệ') badgeClass = 'bg-green';
+                if(doc.status === 'Bị chỉnh sửa' || doc.status === 'Chữ ký không hợp lệ' || doc.status === 'Chữ ký sai') badgeClass = 'bg-red';
+                
+                let st = doc.is_approved ? doc.status : 'Chờ duyệt';
+
+               let actions = `<button class="btn-dark" onclick="showDetail(${doc.id})">Chi tiết</button>`;
+               actions += `<button onclick="window.open('/api/view/${doc.id}', '_blank')" style="background:#7f8c8d;">Mở File</button>`;
+
+               if (currentRole === 'admin') {
+                  if (!doc.is_approved) actions += `<button class="btn-green" onclick="approveDoc(${doc.id})">Duyệt</button>`;
+                  actions += `<button class="btn-orange" onclick="openEditModal(${doc.id})">Sửa</button>`; // Admin luôn được sửa
+                  actions += `<button class="btn-red" onclick="deleteDoc(${doc.id})">Xóa</button>`;
+               } else {
+                  if (doc.is_approved) {
+                     if (canEdit) {
+                        actions += `<button class="btn-orange" onclick="openEditModal(${doc.id})">Sửa nội dung</button>`;
+                    }
+                  }
+               }
+                
+                if(currentRole === 'admin') {
+                    if(!doc.is_approved) actions += `<button class="btn-green" onclick="approveDoc(${doc.id})">Phê duyệt</button>`;
+                    actions += `<button class="btn-red" onclick="deleteDoc(${doc.id})">Xóa</button>`;
+                } else {
+                    // ====== LOGIC PHÂN QUYỀN NÚT CHO USER ĐÃ ĐƯỢC MỞ KHÓA ======
+                    if(doc.is_approved) {
+                        let hasSigned = doc.signatures && doc.signatures.some(s => s.user_id === currentUserId);
+                        
+                        // Khóa nút nếu file BỊ HỎNG (mất toàn vẹn)
+                        if (doc.status === 'Bị chỉnh sửa') {
+                            actions += `<button disabled>Ký số</button>`;
+                            actions += `<button disabled>Xác thực</button>`;
+                        } else {
+                            // Xử lý nút KÝ SỐ / THU HỒI KÝ
+                            if (hasSigned) {
+                                // Đã ký -> Chờ xác thực thì cho phép thu hồi
+                                if (doc.status !== 'Hợp lệ') {
+                                    actions += `<button class="btn-orange" onclick="revokeSign(${doc.id})">Thu hồi Ký</button>`;
+                                }
+                            } else {
+                                // Chưa ký -> LUÔN cho phép ký (Kể cả khi file đã được ng khác xác thực hợp lệ)
+                                actions += `<button onclick="sign(${doc.id})">Ký số</button>`;
+                            }
+                            
+                            // Xử lý nút XÁC THỰC
+                            // Chỉ cho phép xác thực nếu đã có ít nhất 1 người ký
+                            let verifyDisabled = (!doc.signatures || doc.signatures.length === 0) ? 'disabled' : '';
+                            actions += `<button class="btn-green" ${verifyDisabled} onclick="verify(${doc.id})">Xác thực</button>`;
+                        }
+                    }
+                }
+
+                tbody.innerHTML += `<tr><td>#${doc.id}</td><td><b>${doc.filename}</b></td><td><span class="badge ${badgeClass}">${st}</span></td><td>${doc.signatures ? doc.signatures.length : 0} người</td><td>${actions}</td></tr>`;
+            });
+        }
+
+        async function loadUsers() {
+            const users = await (await apiCall('/api/users')).json();
+            const tb = document.getElementById('userTable'); tb.innerHTML = '';
+            if(users.length === 0) tb.innerHTML = `<tr><td colspan="5"><div class="empty-state">Chưa có dữ liệu</div></td></tr>`;
+            else {
+                users.forEach(u => {
+                    let actions = '';
+                    let grantedHTML = '';
+                    
+                    if(u.role === 'admin') {
+                        grantedHTML = '<span class="badge bg-purple">Toàn quyền (Admin)</span>';
+                    } else {
+                        let perms = [];
+                        if(u.can_upload) perms.push(`<div style="margin-bottom:5px;"><span class="badge bg-green">Tải lên</span> <button class="btn-orange" style="padding: 2px 6px; font-size: 11px;" onclick="revokePermission(${u.id}, 'upload')">Thu hồi</button></div>`);
+                        if(u.can_edit) perms.push(`<div><span class="badge bg-green">Sửa .doc</span> <button class="btn-orange" style="padding: 2px 6px; font-size: 11px;" onclick="revokePermission(${u.id}, 'edit_doc')">Thu hồi</button></div>`);
+                        grantedHTML = perms.length > 0 ? perms.join('') : '<span style="color:#7f8c8d; font-style:italic;">Không có</span>';
+                    }
+
+                    if(u.username !== currentUser) actions += `<button class="btn-red" onclick="deleteUser(${u.id})">Xóa</button>`;
+                    else actions = '<i style="color:#7f8c8d;">(Chính bạn)</i>';
+                    
+                    tb.innerHTML += `<tr><td>${u.id}</td><td><b>${u.username}</b></td><td><span class="badge ${u.role==='admin'?'bg-red':'bg-gray'}">${u.role.toUpperCase()}</span></td><td>${grantedHTML}</td><td>${actions}</td></tr>`;
+                });
+            }
+        }
+
+        async function loadLogs() {
+            const logs = await (await apiCall('/api/logs')).json();
+            document.getElementById('tableHeader').innerHTML = `<tr><th width="200">Thời gian</th><th>Hành động (Audit Trail)</th></tr>`;
+            const tb = document.getElementById('dataTable'); tb.innerHTML = '';
+            if(logs.length === 0) tb.innerHTML = `<tr><td colspan="2"><div class="empty-state">Chưa có nhật ký hệ thống.</div></td></tr>`;
+            else logs.forEach(log => { tb.innerHTML += `<tr><td>${log.timestamp}</td><td><b>User ${log.user_id}:</b> ${log.action}</td></tr>`; });
+        }
+
+        function renderUserPending() {
+            const tbApprove = document.getElementById('tbUserWaitApprove'); tbApprove.innerHTML = '';
+            let waitDocs = allDocuments.filter(d => !d.is_approved && d.owner_id === currentUserId);
+            if(waitDocs.length === 0) tbApprove.innerHTML = `<tr><td colspan="3"><div class="empty-state">Không có văn bản nào đang chờ duyệt.</div></td></tr>`;
+            else waitDocs.forEach(d => { tbApprove.innerHTML += `<tr><td>#${d.id}</td><td><b>${d.filename}</b></td><td><span class="badge bg-orange">Chờ duyệt</span></td></tr>`; });
+
+            // Cập nhật: Chỉ lọc những file mình CHƯA KÝ và không bị lỗi
+            const tbSign = document.getElementById('tbUserNeedSign'); tbSign.innerHTML = '';
+            let signDocs = allDocuments.filter(d => d.is_approved && d.status !== 'Bị chỉnh sửa');
+            signDocs = signDocs.filter(d => !(d.signatures && d.signatures.some(s => s.user_id === currentUserId)));
+            
+            if(signDocs.length === 0) tbSign.innerHTML = `<tr><td colspan="3"><div class="empty-state">Tuyệt vời, bạn không có văn bản nào tồn đọng cần ký số.</div></td></tr>`;
+            else signDocs.forEach(d => {
+                tbSign.innerHTML += `<tr><td>#${d.id}</td><td><b>${d.filename}</b></td><td><button onclick="sign(${d.id})">Ký ngay</button></td></tr>`; 
+            });
+
+            const tbReq = document.getElementById('tbUserWaitReq'); tbReq.innerHTML = '';
+            let myReqs = allRequests.filter(r => r.username === currentUser);
+            if(myReqs.length === 0) tbReq.innerHTML = `<tr><td colspan="3"><div class="empty-state">Bạn chưa gửi yêu cầu nào.</div></td></tr>`;
+            else myReqs.forEach(r => {
+                let badge = r.status === 'Đã duyệt' ? 'bg-green' : (r.status === 'Đã thu hồi quyền' ? 'bg-red' : 'bg-orange');
+                tbReq.innerHTML += `<tr><td>${r.type === 'upload' ? 'Quyền tải lên' : 'Quyền sửa .doc'}</td><td>${r.timestamp}</td><td><span class="badge ${badge}">${r.status}</span></td></tr>`;
+            });
+        }
+
+        async function createUser() {
+            const u = document.getElementById('newUsername').value, p = document.getElementById('newPassword').value, r = document.getElementById('newRole').value;
+            if(!u || !p) return alert("Nhập đủ thông tin!");
+            await apiCall('/api/users', 'POST', {username: u, password: p, role: r}); 
+            document.getElementById('newUsername').value = ''; document.getElementById('newPassword').value = ''; loadUsers();
+        }
+
+        async function sendRequest() { const t = document.getElementById('reqType').value; await apiCall('/api/requests', 'POST', {type: t}); alert("Đã gửi yêu cầu đến Admin!"); loadData(); }
+        async function deleteUser(id) { if(confirm("Xóa User này?")) { await apiCall(`/api/users/${id}`, 'DELETE'); loadUsers(); } }
+        async function revokePermission(id, perm) { if(confirm("Bạn có chắc chắn muốn thu hồi quyền này?")) { await apiCall(`/api/users/${id}/revoke`, 'POST', {perm: perm}); alert("Đã thu hồi thành công!"); loadData(); } }
+        
+        async function approveDoc(id) { await apiCall(`/api/documents/${id}/approve`, 'POST'); loadData(); }
+        async function deleteDoc(id) { if(confirm("Xóa văn bản này?")) { await apiCall(`/api/documents/${id}`, 'DELETE'); loadData(); } }
+        async function approveReq(id) { await apiCall(`/api/requests/${id}/approve`, 'POST'); loadData(); }
+        
+        async function sign(id) { try { await apiCall('/api/sign', 'POST', {id}); alert("Ký thành công!"); loadData(); } catch(e){} }
+        async function revokeSign(id) { if(confirm("Bạn có chắc muốn rút lại chữ ký?")) { try { await apiCall('/api/revoke_sign', 'POST', {id}); alert("Đã thu hồi!"); loadData(); } catch(e){} } }
+        async function verify(id) { try { const res = await apiCall('/api/verify', 'POST', {id}); alert((await res.json()).message); loadData(); } catch(e){} }
+
+        async function showDetail(id) {
+            const res = await apiCall(`/api/documents/${id}`);
+            const doc = await res.json();
+            
+            let hashStatus = doc.original_hash === doc.current_hash ? '<span style="color:green; font-weight:bold;">✔ KHỚP</span>' : '<span style="color:red; font-weight:bold;">❌ KHÔNG KHỚP (Tệp đã bị thay đổi)</span>';
+            
+            let html = `
+                <div style="background:#e8f4f8; padding:15px; border-radius:5px; margin-bottom:15px; border: 1px solid #bce8f1;">
+                    <h4 style="margin-top:0; color:#0056b3;">Mô hình Bảo mật Áp dụng</h4>
+                    <ul style="margin-bottom:0; font-size:13px; color:#31708f; padding-left:20px; line-height: 1.6;">
+                        <li><b>Tính Toàn vẹn (Integrity):</b> Sử dụng thuật toán băm <b>SHA-256</b>. Phát hiện ngay lập tức nếu file bị sửa đổi dù chỉ 1 bit.</li>
+                        <li><b>Tính Xác thực (Authentication & Non-repudiation):</b> Sử dụng <b>RSA</b>. Xác thực nguồn gốc chữ ký bằng Public Key, chống chối bỏ.</li>
+                    </ul>
+                </div>
+
+                <div style="background:#f8f9fa; padding:15px; border-radius:5px; margin-bottom:15px; border: 1px solid #e1e8ed;">
+                    <h4 style="margin-top:0;">1. Thông tin Tập tin & Toàn vẹn dữ liệu</h4>
+                    <p style="margin: 5px 0;"><b>Tên File:</b> ${doc.filename} &nbsp;|&nbsp; <b>Upload bởi:</b> ${doc.uploader_name} <i>(${doc.upload_time})</i></p>
+                    
+                    <div style="background: #fff; padding: 10px; border: 1px dashed #ccc; border-radius: 5px; margin-top: 10px;">
+                        <p style="margin:0 0 5px 0;"><b>Original Hash (SHA-256):</b><br><small style="color:#7f8c8d; font-family: monospace;">${doc.original_hash}</small></p>
+                        <p style="margin:0;"><b>Current Hash (SHA-256):</b><br><small style="color:#7f8c8d; font-family: monospace;">${doc.current_hash}</small> <br>➥ <b>Kết quả so sánh:</b> ${hashStatus}</p>
+                    </div>
+                </div>
+
+                <h4 style="margin-bottom:10px;">2. Danh sách Chữ ký Xác thực (RSA)</h4>
+            `;
+            
+            if(doc.signatures && doc.signatures.length > 0) {
+                doc.signatures.forEach(sig => {
+                    let shortSig = sig.signature_value.length > 50 ? sig.signature_value.substring(0, 50) + "..." : sig.signature_value;
+                    
+                    html += `<div style="border-left: 4px solid #2ecc71; padding-left:15px; margin-bottom:15px; background:#f4f7f6; padding: 10px; border-radius: 0 5px 5px 0;">
+                        <b>👤 ${sig.username}</b> <span style="font-size:12px; color:#7f8c8d;">(Ký lúc: ${sig.timestamp})</span><br>
+                        <div style="margin-top: 5px; font-size: 13px;">
+                            <b>Chữ ký RSA (Base64):</b> <span style="color:#555; font-family: monospace;">${shortSig}</span>
+                        </div>
+                    </div>`;
+                });
+            } else {
+                html += `<div class='empty-state' style='padding: 15px;'>Văn bản này chưa được ký số.</div>`;
+            }
+            
+            let resultBadge = doc.status === 'Hợp lệ' ? 'bg-green' : (doc.status === 'Chưa ký' ? 'bg-orange' : 'bg-red');
+            html += `
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: right;">
+                    <b>Kết luận trạng thái:</b> <span class="badge ${resultBadge}" style="font-size: 14px;">${doc.status}</span>
+                </div>
+            `;
+            
+            document.getElementById('modalTitle').innerHTML = `Chi Tiết Văn Bản: <span style="color:#3498db;">${doc.filename}</span>`;
+            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('detailModal').style.display = 'block';
+        }
+    
+        async function openEditModal(id) {
+            try {
+        
+                const res = await apiCall(`/api/documents/${id}`);
+                const doc = await res.json();
+        
+        
+                document.getElementById('modalTitle').innerHTML = `Chỉnh sửa nội dung: <span style="color:#e67e22;">${doc.filename}</span>`;
+        
+                document.getElementById('modalBody').innerHTML = `
+                    <div style="margin-bottom: 15px; color: #e74c3c; font-size: 13px; font-weight: bold;">
+                        ⚠️ Lưu ý: Việc lưu nội dung mới sẽ làm mất hiệu lực toàn bộ chữ ký cũ và yêu cầu ký lại từ đầu.
+                    </div>
+                    <textarea id="editArea" style="width: 100%; height: 350px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; font-family: monospace; font-size: 14px; box-sizing: border-box;" placeholder="Đang tải nội dung..."></textarea>
+                    <div style="margin-top: 15px; text-align: right;">
+                        <button class="btn-gray" onclick="document.getElementById('detailModal').style.display='none'">Hủy bỏ</button>
+                        <button class="btn-green" onclick="saveEdit(${id})">Lưu thay đổi & Cập nhật Hash</button>
+                    </div>
+                `;
+                document.getElementById('detailModal').style.display = 'block';
+
+                const fileRes = await fetch(`/api/view/${id}`);
+                const content = await fileRes.text();
+                document.getElementById('editArea').value = content;
+
+            } catch (e) {
+                alert("Không thể mở trình soạn thảo. Vui lòng kiểm tra định dạng file!");
+            }
+        }
+
+
+        async function saveEdit(id) {
+            const newContent = document.getElementById('editArea').value;
+            if (!confirm("Xác nhận lưu thay đổi? Hành động này sẽ xóa các chữ ký hiện có.")) return;
+
+            try {
+                const response = await apiCall(`/api/documents/${id}/edit`, 'POST', { content: newContent });
+                const result = await response.json();
+                alert(result.msg);
+        
+                document.getElementById('detailModal').style.display = 'none';
+                loadData(); // Tải lại bảng để cập nhật Hash và trạng thái "Chưa ký"
+            } catch (e) {
+                console.error(e);
+            }
+        }
+    </script>
+</body>
+</html>

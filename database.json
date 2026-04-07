@@ -1,0 +1,98 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "admin",
+            "password": "123",
+            "role": "admin",
+            "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvWSOYR+OT+T3DgTX5E4t\nhQnXnXcf6GRmElbKuhmLQ9Qi1eioe/fb9t4i7XvS7F9EfC53XHRxw1Z0pvmmoHia\n43DJZ9+9HYVikzFTLQaHmKO0R8bonS4ZP2svX3s8mhJ/Nkk4eASmbk19W6PNqQTa\nI3eWUp/AJte/as1VFVIjKhQXnd0cp0Mhqy7fDN35BtdJPxYzTFTZGG5ykWW6DSc4\n++6+PdtZLj+d1lqAezr0UbYwHub+53edBoCyyke8dQUcU24jPWULKbB1znF8GLpf\nA6ZABcjxAiY/iodcQgNnGv/sI6kCnIxA5I5xoHpfIzuyGS9x82fcmGTucfbRsY19\nXwIDAQAB\n-----END PUBLIC KEY-----\n",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC9ZI5hH45P5PcO\nBNfkTi2FCdeddx/oZGYSVsq6GYtD1CLV6Kh799v23iLte9LsX0R8LndcdHHDVnSm\n+aageJrjcMln370dhWKTMVMtBoeYo7RHxuidLhk/ay9fezyaEn82STh4BKZuTX1b\no82pBNojd5ZSn8Am179qzVUVUiMqFBed3RynQyGrLt8M3fkG10k/FjNMVNkYbnKR\nZboNJzj77r4921kuP53WWoB7OvRRtjAe5v7nd50GgLLKR7x1BRxTbiM9ZQspsHXO\ncXwYul8DpkAFyPECJj+Kh1xCA2ca/+wjqQKcjEDkjnGgel8jO7IZL3HzZ9yYZO5x\n9tGxjX1fAgMBAAECggEAGU/SougGQObvc9gG3d7q64BiE4v5CjnngGT0HtoiHYnB\nBsiw7THg8TCashWd83RUtqoOeXSgmFmPfpoYAGi4qVQIvua3+OA7npjK2St/Eicy\n2shFN23n9uywKKPTo3MnEvjHNhcdAoSTD/J889gPqrTQCjE1NkZtsUGfBkSeKYB0\naqVPP2vyUc8dP2+frivp300+IbIeKer6++CJfzqOB5okUz0289T7GuXpsaZlIxtF\n1BRI0knnhKVzQB062rc4emW7Gisnl21h9Y4Ybl9yZrdn6aQlbm/8rwPr45x+LLCS\nZwo+Hs5kgzGYa+oUSM7rnK7442OiAJmaOTqzak5oSQKBgQD01fySvManHQaLTr7y\nIwzmlVzqEeqSUrJXK4uHdOCxG4aO9Tm+7oPdaU6zyPrglpK6jgi9T0o7YrXm9Mtu\npHFzeSyulRe1kzb+zPDqSL03wsby7d0H7X+eOtHGpS0obk68RIJ6PoVyzwCw/aoY\nyIkqCWqJrIinnRVildY1TZvCiQKBgQDGB19WEbG+cZHpCTS0nrfR1+8mUA0I30GM\ndZr8n4NA3QuvrKlkFrqeVeC3Ilrsi+PJ6pMB+TYXjlcLDmltv16IXhIzEZUPo4e9\nsxj1QCxI3YOAy7avUI4pvbRXFYLyi72Sa0wz0e7qrlBNiYqYXs2BjPBd4hbrAmyy\nQVrKBjdmpwKBgQDLfrwCHmMibM6OpPGyAY3sbQKgDiogWhmeuDOtb2h96/noAkxv\ntIDnW2qtpYNXfe8QnZMH/coeF8pG3vniyUz+hB2uMX9WTLiuCRrIL5MNsJd5PFi1\nCSJEGnFXINyquRw6ANtNzX9PUFwrv3pMRQk0ZkUljsC6R6aJnS5AeXPXuQKBgQCj\noi/rJQ/kuF/DWnIM1iI66d2ZoQhETocRk5SQLxb8ICup7FjEdeubLodTjLXpRObj\nUExNkypZaKsQXcZMg5ePw3vyaxLrK0vdOwLilTaCt1gUs0CvuTbf0vwUAZiE52es\nd7EuGMj9bzC4AXFe2uehp15vlYUuiIBdA5gL2/snfQKBgQC7f3LZAhK5Dh/cesNf\n7N+sYSoeJdAxkEfOuSCI9mSKuB7Hsrdzg+2en8k9quoJgDxxMInLybMr++9W9/6F\nwDmALr8im4902nQt0ucN2gY99ZzQDIxyCQXBBg8pVOWJnSkGwEdjJsGAeK0RijmZ\nMgiE9LM5lcXezpSxhTTHDunOsw==\n-----END PRIVATE KEY-----\n",
+            "can_upload": true,
+            "can_edit": true
+        },
+        {
+            "id": 2,
+            "username": "user1",
+            "password": "123",
+            "role": "user",
+            "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA/tRH1UDNieEur5bv6+V+\nbJW8wIxwy3tR1eFylO2H5WdwUSKsHpj0sOZtbiae8bi4wzW7vxgwADI+PauRDuZj\nkwIynQSk1bxe1x8UuNtE/V8ljkrgn4MlNHL4u1FV4/1Kt1FI4dDXhdesnXb1FRi6\nkJSj8oqi1qxSE/SxuE1Dr6p+NWAutEvcJ2G2u7gfINqKR8TYdbdkwFWuoYFM4h31\n0rsdKD3mTNY/vFA76oxWjTR8cXiHWnwkdNM6sz/YeNDWMZwEmR0uFx8WDtwHjja5\nSAX25uPbwLRZOeKd9a6s+dnmvvCoJJsliBni7RnbtxYcCpnXWY0wJZCQiL+V2V4r\nuQIDAQAB\n-----END PUBLIC KEY-----\n",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD+1EfVQM2J4S6v\nlu/r5X5slbzAjHDLe1HV4XKU7YflZ3BRIqwemPSw5m1uJp7xuLjDNbu/GDAAMj49\nq5EO5mOTAjKdBKTVvF7XHxS420T9XyWOSuCfgyU0cvi7UVXj/Uq3UUjh0NeF16yd\ndvUVGLqQlKPyiqLWrFIT9LG4TUOvqn41YC60S9wnYba7uB8g2opHxNh1t2TAVa6h\ngUziHfXSux0oPeZM1j+8UDvqjFaNNHxxeIdafCR00zqzP9h40NYxnASZHS4XHxYO\n3AeONrlIBfbm49vAtFk54p31rqz52ea+8KgkmyWIGeLtGdu3FhwKmddZjTAlkJCI\nv5XZXiu5AgMBAAECggEAXrU8oUg9W6IiPMYnExAvBWI9TX6kqSuDBa+Na0ZAfIUO\nHEl7mL+WKWzqfMbDyeiyWnLM/T+bD2ec9ESgW95KYaeuceb48CrbQK5fgDiWEmjb\nR2ASzZXrLOwR/2RCPMK1kx4VrT916lt23usIOTgAlp13tTvLO2e99Ya6ylmE73L7\nLIyt/AcC2ZNbE1NLrnbVGjOjSN9qe00Nns8HZiqeWwqI09NHJvtJ1nTIEmxC8zCs\n3GQ5gk0g/MzORddmPSH+6pmX2ZfUgjSbeGitEH5brYM1BQ/uWinOAj0YD2bMHMvC\nagCcUEho0V9fxbQeAxRJtYGmct6abwdgyRtEQD+5xQKBgQD/vHs+dAoHRHXFjTjZ\nrgCk5YQa7wZh2hQHi4I/SQH+l8+rVKUv9JDfMVE/H5I9LVOZYAElTYsxQgTv6wcz\nad8j8JvnqdNLq8mPa2UHc9JROnG5zOZXL9p0LDu6LJbMbIdZGd4Qz2iUFwIu8CuA\nQ2nL2kNdKZqljm6fIKFhrpwbvwKBgQD/F49IwvP+T9voMtrjxKh7JSNZLb7m+fqN\nGGgnePKMsMidY1hbmI7bURaRLO3/cNiYA2cScJfp+02Plh863fFJL7oD0tcsdtIW\nUzTanGk36BcGCPwwbf9MlxAVoXs50g0DyItyMMAphJkFRihd4K7b5OwlEbgcfPFd\nwKgK/h72hwKBgQDKesAVvahnAqRAqsTVTPiDlplW/eNOvGzZYHLaioKCwk4ReC5l\n3ryJirGqSePufiHPsPyXPWM0t/HSx4JnCa879HhsHsEGC9jFriFKmkBuQdjjZEEH\nzQKospEDoeQvrMopGNsC8kT545G9+jhnEHkGhySI8bTY2gHqCdrczXQaXwKBgFSL\noXCzNJ0QKMlvuX6OGm0eJPYUpFX3eiQzd6nFe1ZH7WXEnG9XQ9nKqVkadBMaep7/\nWbUR3jetk8pILjebgbIJAHTt92UESKMflr/x4SmnYaIdbkA65Mekta8Fo0rJpIih\neh4xrC7WhMTruMtMgYfd+qpakhPXEURKayehi++XAoGAc7xzjeQV7YxYRZJQH1gP\nC7YH6UqyrUAwNc6uOUULSHKRBK0eHsbmd5Y6hDp7t+20vwDjIYd/4s/mNeDdBWHm\nmSflsgXiB/GRqrLhaeRrNTUgMxAIL/P/oGRGUBmnPTQhdQENQ/VOkiQy4mMnhqua\n/BVVTwq9z6C6aFlsbEcz7RE=\n-----END PRIVATE KEY-----\n",
+            "can_upload": false,
+            "can_edit": false
+        }
+    ],
+    "documents": [],
+    "logs": [
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-08 03:18:07"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-08 03:52:59"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-08 04:11:02"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-08 04:30:33"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-08 04:31:30"
+        },
+        {
+            "user_id": 1,
+            "action": "Upload: 079206018424_Luu_inh_Quyen_Anh_Tuan1.pdf",
+            "timestamp": "2026-04-08 04:31:49"
+        },
+        {
+            "user_id": 1,
+            "action": "Upload: 079206018424_Luu_inh_Quyen_Anh_Tuan1.pdf",
+            "timestamp": "2026-04-08 04:32:28"
+        },
+        {
+            "user_id": 1,
+            "action": "Upload: N06_ELE02.pdf",
+            "timestamp": "2026-04-08 04:33:41"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-08 04:34:01"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-08 04:34:17"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: N06_ELE02.pdf",
+            "timestamp": "2026-04-08 04:35:17"
+        },
+        {
+            "user_id": 2,
+            "action": "X\u00e1c th\u1ef1c v\u0103n b\u1ea3n: N06_ELE02.pdf (H\u1ee3p l\u1ec7)",
+            "timestamp": "2026-04-08 04:35:20"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-08 04:35:33"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-08 04:47:52"
+        }
+    ],
+    "requests": []
+}

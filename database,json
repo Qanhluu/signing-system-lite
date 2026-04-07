@@ -1,0 +1,498 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "admin",
+            "password": "123",
+            "role": "admin",
+            "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA21metYMp1f79WS0YGQwB\nk0TXYVRnhgsk8/etapqXHZXMlU6GdKg6CwzYSGQfPVQIKPh3QRZXAqEGiCwCs85p\ncI5uO6tZ5FAuqmzwCewz2HRY7qDl7BzVJomzBTh/MKa5fNxhtrEJljVSgh0CohL7\nLx3G8PsNu6uwkzXXC8nwbxWPIhEelSuVu4vP/VOu5GslHf0gJy/dWkK0iOztjF2I\nhmCDh+HESxgY70q36G7ZKllDpSvtHox/PnN5IB6Mq2ImysDHE1y+auE+Mr9+sTP0\nUnFRK/DDKt80hBp8D83DsKyOqwnZDoGdQOrDzZLR+n16mTkeo1pZ6W4YtmrQek7l\nfwIDAQAB\n-----END PUBLIC KEY-----\n",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDbWZ61gynV/v1Z\nLRgZDAGTRNdhVGeGCyTz961qmpcdlcyVToZ0qDoLDNhIZB89VAgo+HdBFlcCoQaI\nLAKzzmlwjm47q1nkUC6qbPAJ7DPYdFjuoOXsHNUmibMFOH8wprl83GG2sQmWNVKC\nHQKiEvsvHcbw+w27q7CTNdcLyfBvFY8iER6VK5W7i8/9U67kayUd/SAnL91aQrSI\n7O2MXYiGYIOH4cRLGBjvSrfobtkqWUOlK+0ejH8+c3kgHoyrYibKwMcTXL5q4T4y\nv36xM/RScVEr8MMq3zSEGnwPzcOwrI6rCdkOgZ1A6sPNktH6fXqZOR6jWlnpbhi2\natB6TuV/AgMBAAECggEAAhQgSk312Nmd4XNSFRgiiDtrAFu1FczfJQCHWmZPFaek\nbvyBd5ZbQEWlqWjde3dXzP+XlnDm+1zlXoqGC3ycwospK0KWHM5EE6ukJzp21ayv\nH/iBXIyqTm3d5XmKoTK257nGXaNWHsjHZD8TfriCJSBibgL/ZdF5d3ruoit3OfQP\nWdeiMImFQVyovMLD5QTrqR8Y5KFfZQSZ6RXOxzGxRGSqnzgfAdtgPHeozExT7DLy\nh1bVeRsa1s/eQPES/ZzuQP8tsTzSU398XALc5Th/GvII7GkZ0t247rt3hei8Xbr4\nTpY8+astxE7jy91kunbXtLq5xE2T+WO+r6aut+vu9QKBgQD5jf1zxmG3WrqI3hLP\nQo8kUZ2+Amuj7mbt9USW6SDidGVAumeXTJs9FijwgZPMHmbX2335p3MdB0OyWZ7x\niVXWs8EBpZHn3h++wub/afRXBiOBVon2QApVTDiACHuCcIc8QYp26YUN64F/jgTh\n+TbO8I/uyUKqGZd634W314jukwKBgQDhA+w7Yo2yZTMeGlfkph0mzD9gAetHtNIx\nd8y+edJ3AXbcZbTqbngZRoqTkyKIxeM+ftOiD2pZWZOnVqxzvwT3eeth8+Kp5k0g\nYv6NckGigxavqpjJhVWZ8tK4oKGHajPPC07ixei5vYEOgAFpO+4k7kb9QDv1kDY3\ntf27i9oU5QKBgDGV8wx0GKp0DqhvZ9Fi6kpPJUbB+F1kW3NgzrYlsHEOq6fG4hqA\nEEB9DLltJc7jI5A0fr2Cdi8IaH0hraFUpoe4w9rt6SXnTut6kqehh/lasOdcKKGT\na/oy4O8fwFrUvSpN45NpJxTy/JI5x+KWwDsyNYc+2k4uM5konMtAumadAoGBAIvK\njxl5qcQ5wN8jyJUBajzvSTQRHSWIPcmDvsxbDJjobPqRqSq3hJ9XRsJV9293WS07\nR6l34D8wOl4Mp8ik1KYWtVg+VwPsUuAbAD/JyuL2g8KQvqj7z+l7hNQ03wUswpEP\nWmviPioehC4I8ld5ZwLEkY/GNzng5P4Jb1/zi4HNAoGBAIwhaBVVfz/jvRPP+4bu\nRQc8PYgFqCcoKMl7sBntzDvA5Sux04rH/AxGWHqPIgX7MuX6S+J8T5kqCbFyZjNZ\nP24NL9JGIz0D5xO/CRwFVuwEuDL359iwVN2arpvcmKWqDPdTSOFx0W/Bw48MXrNY\nBwn/in58MwlRVz6D0T9oSJ+F\n-----END PRIVATE KEY-----\n",
+            "can_upload": true,
+            "can_edit": true
+        },
+        {
+            "id": 2,
+            "username": "user1",
+            "password": "123",
+            "role": "user",
+            "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwVLoY1RHle9l9NMvXgNv\nX0zD4l/31I6qwieLSQ02yCHrRHp2ERKAy3TJ8C0HLSDCFVsH1rjIt2uK2gYHKhkm\nd4g1b0mQqvIVpp2K4mRz8MqoIvuUOUABjYyEYpoQKqVsOoPpiZt/tLRxLe2i18oR\n5eckSKzwi1xcmO+gwWuJaAJAkG8CNo8VH9DAW0x0JQQOGDMRGoDppAwOqQ4MmoO6\na1erDj8snKVwxWsc+URI+zYgKBsZnipU+kI105AMVP2vAiUSKRiAuQAGnllnyJsW\nZSFX5Wzat4jUd1cTYfPnUV8JOrGc3vS8Yk8fU5ljWrBkclRWBkZlwl28xPEGZFv/\n+QIDAQAB\n-----END PUBLIC KEY-----\n",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDBUuhjVEeV72X0\n0y9eA29fTMPiX/fUjqrCJ4tJDTbIIetEenYREoDLdMnwLQctIMIVWwfWuMi3a4ra\nBgcqGSZ3iDVvSZCq8hWmnYriZHPwyqgi+5Q5QAGNjIRimhAqpWw6g+mJm3+0tHEt\n7aLXyhHl5yRIrPCLXFyY76DBa4loAkCQbwI2jxUf0MBbTHQlBA4YMxEagOmkDA6p\nDgyag7prV6sOPyycpXDFaxz5REj7NiAoGxmeKlT6QjXTkAxU/a8CJRIpGIC5AAae\nWWfImxZlIVflbNq3iNR3VxNh8+dRXwk6sZze9LxiTx9TmWNasGRyVFYGRmXCXbzE\n8QZkW//5AgMBAAECggEAAR7KAjpvknzmbdnPnwxv9NPUMGY54JA4t7uUqF2TvLyF\nN+evw7yP2VJW4zu6eWrhrcQXxtqfua6Oz3jlvi97ZbgzHfqoeNF8w/65cc8Kwd0L\ngKgHvVuNux0eYxdXjOnlfSjFtnNKL0vvHT0n+Rnf/DjYckyjtXpNxFYFVK9sb18T\n7c0yGIRSF4x3JJOF6k7WXO9ZVprKPsPzqRNzUJyNSwhh7w60IP+eURSb+w8HajrZ\nHojg3cddG0NvrtkJ7p4hT2w0g1t8RBRDdGrOXsr7hn+r/djJPGI4M7zZagiiJn0p\n45Ptbbe0uFKwMbQ4DTeRow+Qj56x6nUyTes4H0VH6QKBgQDwoAOnCiR2SCsPoLUv\nbXWHf2CW9+pi5poYdANkGyqNGuzPVNVMxL/LXPvuDxiO8AShRTcW+KgJL2jBU7f0\nsDO/PdHOkeP3TEgJ62VOQxFhe5DrrZ2jq0v8fQuSj5PBMCJcAVin6pecfdiIqh9Z\nyCp2k+zzfnVr7R27qvOfCBOE7QKBgQDNrSv4H4rnPdr3ohbcSTwExi4fOdGcNk+i\nHIQRRrkNumgP2nFwg2h7ev2uS8D2gafG8H8d/oxFLigVai9hv8WK1SrFKDoXbgQy\niOxGxZ05eZ/nErs2YcEXP4nBAA8StpyKaDKfGC793LY3iP7IabC1pfNzoD94tB0F\nKQSy/NexvQKBgHKZ80NiLD19X6zgwIpnGnu/KdSdHK+f3rJYxqit25U6xqB0aeZX\nKnWDwqT94ZdqLvpUCcnSAc3mG4FACzPpm6uwmLVGfIlydjjrOOOOQ7/m5v2oQZUK\n53TIZXOXGCsBbsvdBEltDGpG8ZMdWzMah0bUax0JFImjc+7Gm6MZaJp9AoGAMTmB\n7Xd3IhLuxheYCw7H+4iG31hSL2XcNztF7HCVt5BmeWzZe4knx23PKxjcTOMJCZbj\nhYU3gxMh6sYoIufn2mtcOiV/ib396S5WBjYjg+708zPLdJ9+vBar3HIsKVllK8b2\nXpdGH+HkBnSWLdcFwOO/2Wt/5V6OF38SrdfPs60CgYAphhzRORpY7Frkw2tkjTUN\nv/e95m31nW2tmk1RVWv5EKBoVfRYYl8OAqfnv3faIhRjt3/HC43zswiqTA8BGFZK\nfS6mB/hZ68u9de71CJ65IMfDtnVEcYPNXcC23HnPTL16XsFCQOHK9M8byqfpllT/\nIiEcuS7+1l2Y0aSeA1fkLg==\n-----END PRIVATE KEY-----\n",
+            "can_upload": true,
+            "can_edit": false
+        },
+        {
+            "id": 3,
+            "username": "nguyenvana",
+            "password": "nguyenvana",
+            "role": "user",
+            "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqni37i+Kv+62vq/ZMPAl\n0NNTvoDt0bs9briC5AaZlTj884LUu+fDw2N2I+W0GIhQCGHamS3MxzTw28gaimN4\nn96/1ZVQo9wXaZIVs4pmJjbSK/kNnp1nsQR7SuprWohAvyNUHCEalzTATqOf/vc2\neCoJ0pJwI4/nwG4NaR2c8FINBiY8uU0VtjUUgqCamYDZ/FSneNAS60IDF956v/Ta\nCTyhohONREERKCl1igyC951tloNggMaRKVFprUDq/e1N/VCVowT3ctN3zdFBDZjy\n922yTzt/lds9VZwnn/J+NOmxxi7Q0Ndn1/r6hXytfLVisK83ja7KJygCH9xwholf\n0wIDAQAB\n-----END PUBLIC KEY-----\n",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCqeLfuL4q/7ra+\nr9kw8CXQ01O+gO3Ruz1uuILkBpmVOPzzgtS758PDY3Yj5bQYiFAIYdqZLczHNPDb\nyBqKY3if3r/VlVCj3BdpkhWzimYmNtIr+Q2enWexBHtK6mtaiEC/I1QcIRqXNMBO\no5/+9zZ4KgnSknAjj+fAbg1pHZzwUg0GJjy5TRW2NRSCoJqZgNn8VKd40BLrQgMX\n3nq/9NoJPKGiE41EQREoKXWKDIL3nW2Wg2CAxpEpUWmtQOr97U39UJWjBPdy03fN\n0UENmPL3bbJPO3+V2z1VnCef8n406bHGLtDQ12fX+vqFfK18tWKwrzeNrsonKAIf\n3HCGiV/TAgMBAAECggEABogPjAm4SDhOOiokqTJaUJD4QXFRK1sANJDPOwthsQz4\n7B+UJQrxPjg+W4u+hb4bSubs6DeQBAXsQI9/LNQ41+9B7F4HM/AH2ZymRjXESiyJ\nivPE6NHhGjAwxSMML/DOgkRJQbam/SohQCIWzD8OkDYUIERKFaK6322YB/IBhFeg\nY7ckA2IidQhTII14qY7pCnK0W71G9g8RGAlPNqTJG4BUT3U7XWxTsGTi6nR4mt/j\nXXbcMCqiq7AC09snZntUks5Tx0B1mpD6cY8IoLMOb032cOTVdGSnc0i6ceh7Xbsp\nO2fTGKQ213S05+y062TJSTBQz/ZegT3xVIyAUvw7WQKBgQDkY0UG1sFeMyiLV6EG\nqX893Ytc+TvIl3asvBw2HxQZ76WtOSbxcnbtLSqbxB/UkqobKyET4uUeKl7/LeK5\nogc/ZEoxCA3EcmmfhxpvCB4HKRiOgpw17/bnJC8K3FSs8VDkCU/1G+FBUUm9S9L+\nB8RV6ewvNgiNJtXbLEuWZXqIvwKBgQC/FOjIVfCQJEGi30oVG2ETxlGEkL6HXKlF\nHj20rYUfFuT3fXaRJla4WSPT0z2f4cpqPXueYQidegjlDoJ2HIMolNrm8TE5bAPK\nWyhgESKD+4745HNpvVRlsiwyajZpJmKRu4oV36XDdocywwfnhRR1r90Hs8uBPxPN\nLx9koan57QKBgCVjnwRMmiF6zJNrSCBYFU2ifFM/NitTqIkEzrWJhvfsBLqEFb0H\nWTLg5w3TIMbjL9f8ypB/37R9iUnLUEfFn9wf5gl64Q4dEO+d5ZTxxkCz2KJT/ZDS\n9R/IC6+CfJZHd0+tuppM8yaHUUQdKrCNwvWxswnTlbjN98rGyKUZfeLvAoGACWcl\nAV7BRMaT+EjWo21CfK+gqU5aId0cc0tGrBJx35LH16nz4LarQ80XJ0BY4vpAdLPr\n1mJeAynTMDpjjx5eEewpTX4G9xVqplWQChItyaLiaTsMtuJbOdnntN9nKAt8hEFf\nTS5BQPofMw9H30u8MwJhdRSS6hxJhCpSeChAbg0CgYA7m2TPQF1zFL5UoRnnwms3\nsEHjBmMRvZNWMUKdiTcX5ohEvX1vscoqpbtwtYfwL+eTHDOsEmO3VQ8p1Ex7zQ+s\nO+s08522FArYNx+f304cpC6WxP/t3lMj5I2hbN2zrhq0e9N5M/pYdCV9QtEnrOJV\n9T//kSHPjXk1nLkUYeMLvA==\n-----END PRIVATE KEY-----\n",
+            "can_upload": false,
+            "can_edit": false
+        }
+    ],
+    "documents": [
+        {
+            "id": 1,
+            "filename": "index.html",
+            "filepath": "uploads\\index.html",
+            "original_hash": "89556180fa4bc006a85a426281d181e6189bf2dc4c656b3a7a7aa0ec3cbca6f9",
+            "owner_id": 1,
+            "uploader_name": "admin",
+            "upload_time": "2026-04-03 16:10:56",
+            "status": "H\u1ee3p l\u1ec7",
+            "is_approved": true,
+            "signatures": [
+                {
+                    "user_id": 2,
+                    "username": "user1",
+                    "timestamp": "2026-04-03 16:13:06",
+                    "signature_value": "JY02KgU5zVMMxRBRSJ1YWSd7uWkcGwFB3UCwnK5NpTdfHX0qc+k1Ge/2rLQzLtResqAbJZytPT/nNB8aOaab1HuVGKutYCt/Z9qz4PRoUB1TbUmFnUch1d4MjOdzLdeBUT+SQGpeIoaHznLISmVCrc0m9w1P3RK42Wlit/wnRrL/R4yprPClBVj9TnMZJ28jzhC0Ak/wUrXm09+As+1pu6T4jlvWwlYvCRQ05i21VUheZBF9mntoSVUY2lmMVUS6CYuFlke11Exzhats6PJ49WY10CUKWJ5cPCfPX70rvUJTBEk9/qUFqa4b3wO5rnev9k0cX5JGyXDDJD5JioHGEQ=="
+                },
+                {
+                    "user_id": 3,
+                    "username": "nguyenvana",
+                    "timestamp": "2026-04-03 16:54:52",
+                    "signature_value": "F51qEqftESDjiPV5Xp4HaB0sju46XLaCHiDEW66H5EkfOWfbrODlSVYHR7B0nEF5u6h7BAfPv5ughWJNuPVtWKOXtejYAbO0oZgVFY0kGkVVyVaD4WxeC7JMo2QX1l1RreRlqnqeI0HNS5kqKkCZfEauvwrJk2c5rXePzev13686a8NpvX47CTO8d3loN0A3PoEw1GHjAwD6q0IuxRZY4Jyz4GnEnqQjEho771S5ekKvRgoNkks4y1Okqm7rsNm+nVfgrP9p8aE9yNL33CAVDuL+cBhw0nSRlz6zn19KxkStV5Hvnrn6oLPlpCVzSgTp6l09/F+Cxjw8Vgo7gHSspQ=="
+                }
+            ]
+        }
+    ],
+    "logs": [
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02T10:32:12.210166"
+        },
+        {
+            "user_id": 1,
+            "action": "Upload v\u0103n b\u1ea3n: CT01.doc",
+            "timestamp": "2026-04-02T10:32:29.837891"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng xu\u1ea5t h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02T10:32:39.731461"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02T10:32:54.439285"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n ID: 1",
+            "timestamp": "2026-04-02T10:33:04.185193"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02T15:59:42.915961"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 16:20:31"
+        },
+        {
+            "user_id": 1,
+            "action": "Xem v\u0103n b\u1ea3n ID: 1",
+            "timestamp": "2026-04-02 16:21:14"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 16:31:32"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u00e3 x\u00f3a v\u0103n b\u1ea3n ID: 1",
+            "timestamp": "2026-04-02 16:32:56"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u00e3 t\u1ea1o t\u00e0i kho\u1ea3n m\u1edbi: nguyenvana",
+            "timestamp": "2026-04-02 16:33:21"
+        },
+        {
+            "user_id": 1,
+            "action": "Upload v\u0103n b\u1ea3n: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2 (1).pdf",
+            "timestamp": "2026-04-02 16:33:55"
+        },
+        {
+            "user_id": 1,
+            "action": "Xem v\u0103n b\u1ea3n ID: 1",
+            "timestamp": "2026-04-02 16:34:12"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng (admin)",
+            "timestamp": "2026-04-02 17:04:26"
+        },
+        {
+            "user_id": 1,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2 (1).pdf",
+            "timestamp": "2026-04-02 17:04:52"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng xu\u1ea5t h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 17:06:28"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng (user1)",
+            "timestamp": "2026-04-02 17:06:42"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng xu\u1ea5t h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 17:15:23"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng (admin)",
+            "timestamp": "2026-04-02 17:15:35"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng xu\u1ea5t h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 17:35:25"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng (user1)",
+            "timestamp": "2026-04-02 17:35:44"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 17:48:49"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 17:49:41"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 17:52:09"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 18:03:42"
+        },
+        {
+            "user_id": 1,
+            "action": "Upload v\u0103n b\u1ea3n: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-02 18:04:24"
+        },
+        {
+            "user_id": 1,
+            "action": "Ph\u00ea duy\u1ec7t v\u0103n b\u1ea3n h\u1ec7 th\u1ed1ng: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2 (1).pdf",
+            "timestamp": "2026-04-02 18:04:53"
+        },
+        {
+            "user_id": 1,
+            "action": "Ph\u00ea duy\u1ec7t v\u0103n b\u1ea3n h\u1ec7 th\u1ed1ng: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-02 18:04:56"
+        },
+        {
+            "user_id": 1,
+            "action": "Ph\u00ea duy\u1ec7t v\u0103n b\u1ea3n h\u1ec7 th\u1ed1ng: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-02 18:04:58"
+        },
+        {
+            "user_id": 1,
+            "action": "Ph\u00ea duy\u1ec7t v\u0103n b\u1ea3n h\u1ec7 th\u1ed1ng: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-02 18:04:59"
+        },
+        {
+            "user_id": 1,
+            "action": "Ph\u00ea duy\u1ec7t v\u0103n b\u1ea3n h\u1ec7 th\u1ed1ng: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-02 18:04:59"
+        },
+        {
+            "user_id": 1,
+            "action": "Ph\u00ea duy\u1ec7t v\u0103n b\u1ea3n h\u1ec7 th\u1ed1ng: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-02 18:04:59"
+        },
+        {
+            "user_id": 1,
+            "action": "Ph\u00ea duy\u1ec7t v\u0103n b\u1ea3n h\u1ec7 th\u1ed1ng: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-02 18:05:00"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u00e3 x\u00f3a v\u0103n b\u1ea3n: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-02 18:05:03"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 18:05:17"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng xu\u1ea5t h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 18:05:54"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 18:06:02"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng xu\u1ea5t h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 18:07:29"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-02 18:07:36"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:08:05"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:17:45"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u00e3 x\u00f3a v\u0103n b\u1ea3n: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2 (1).pdf",
+            "timestamp": "2026-04-03 15:21:43"
+        },
+        {
+            "user_id": 1,
+            "action": "Upload v\u0103n b\u1ea3n: CT01.doc",
+            "timestamp": "2026-04-03 15:22:37"
+        },
+        {
+            "user_id": 1,
+            "action": "Ph\u00ea duy\u1ec7t v\u0103n b\u1ea3n h\u1ec7 th\u1ed1ng: CT01.doc",
+            "timestamp": "2026-04-03 15:23:08"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng xu\u1ea5t h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:23:16"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:23:24"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: CT01.doc",
+            "timestamp": "2026-04-03 15:23:39"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: CT01.doc",
+            "timestamp": "2026-04-03 15:23:45"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: CT01.doc",
+            "timestamp": "2026-04-03 15:23:49"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: CT01.doc",
+            "timestamp": "2026-04-03 15:23:52"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: CT01.doc",
+            "timestamp": "2026-04-03 15:23:58"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: CT01.doc",
+            "timestamp": "2026-04-03 15:24:06"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:42:12"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:42:33"
+        },
+        {
+            "user_id": 1,
+            "action": "Upload: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-03 15:42:59"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:43:32"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-03 15:43:39"
+        },
+        {
+            "user_id": 2,
+            "action": "Thu h\u1ed3i ch\u1eef k\u00fd: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-03 15:44:01"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf",
+            "timestamp": "2026-04-03 15:44:05"
+        },
+        {
+            "user_id": 2,
+            "action": "X\u00e1c th\u1ef1c v\u0103n b\u1ea3n: 3 C3. L\u00dd THUY\u1ebeT M\u1eacT M\u00c3 P.2.pdf (H\u1ee3p l\u1ec7)",
+            "timestamp": "2026-04-03 15:44:08"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:44:45"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:54:24"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:55:28"
+        },
+        {
+            "user_id": 2,
+            "action": "Upload: app.py",
+            "timestamp": "2026-04-03 15:55:49"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:56:07"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:56:38"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: app.py",
+            "timestamp": "2026-04-03 15:56:45"
+        },
+        {
+            "user_id": 2,
+            "action": "X\u00e1c th\u1ef1c v\u0103n b\u1ea3n: app.py (H\u1ee3p l\u1ec7)",
+            "timestamp": "2026-04-03 15:56:51"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 15:57:00"
+        },
+        {
+            "user_id": 1,
+            "action": "Upload: index.html",
+            "timestamp": "2026-04-03 16:10:56"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 16:11:18"
+        },
+        {
+            "user_id": 2,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: index.html",
+            "timestamp": "2026-04-03 16:13:06"
+        },
+        {
+            "user_id": 2,
+            "action": "X\u00e1c th\u1ef1c v\u0103n b\u1ea3n: index.html (H\u1ee3p l\u1ec7)",
+            "timestamp": "2026-04-03 16:13:09"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 16:13:18"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 16:42:19"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 16:43:05"
+        },
+        {
+            "user_id": 2,
+            "action": "X\u00e1c th\u1ef1c v\u0103n b\u1ea3n: index.html (H\u1ee3p l\u1ec7)",
+            "timestamp": "2026-04-03 16:43:10"
+        },
+        {
+            "user_id": 3,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 16:43:37"
+        },
+        {
+            "user_id": 3,
+            "action": "X\u00e1c th\u1ef1c v\u0103n b\u1ea3n: index.html (H\u1ee3p l\u1ec7)",
+            "timestamp": "2026-04-03 16:43:50"
+        },
+        {
+            "user_id": 1,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 16:53:58"
+        },
+        {
+            "user_id": 2,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 16:54:27"
+        },
+        {
+            "user_id": 2,
+            "action": "X\u00e1c th\u1ef1c v\u0103n b\u1ea3n: index.html (H\u1ee3p l\u1ec7)",
+            "timestamp": "2026-04-03 16:54:30"
+        },
+        {
+            "user_id": 3,
+            "action": "\u0110\u0103ng nh\u1eadp h\u1ec7 th\u1ed1ng",
+            "timestamp": "2026-04-03 16:54:46"
+        },
+        {
+            "user_id": 3,
+            "action": "K\u00fd s\u1ed1 v\u0103n b\u1ea3n: index.html",
+            "timestamp": "2026-04-03 16:54:52"
+        },
+        {
+            "user_id": 3,
+            "action": "X\u00e1c th\u1ef1c v\u0103n b\u1ea3n: index.html (H\u1ee3p l\u1ec7)",
+            "timestamp": "2026-04-03 16:54:56"
+        }
+    ],
+    "requests": [
+        {
+            "id": 1,
+            "user_id": 2,
+            "username": "user1",
+            "type": "upload",
+            "status": "\u0110\u00e3 duy\u1ec7t",
+            "timestamp": "2026-04-03 15:44:18"
+        }
+    ]
+}
